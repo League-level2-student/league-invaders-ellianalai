@@ -10,8 +10,8 @@ public class Rocketship extends GameObject {
 	
 	public void up() {
 		y-=speed;
-		if(y<50) {
-			y=50;
+		if(y<0) {
+			y=0;
 		}
 	}
 	
@@ -24,15 +24,15 @@ public class Rocketship extends GameObject {
 	
 	public void left() {
 		x-=speed;
-		if(x<50) {
-			x=50;
+		if(x<0) {
+			x=0;
 		}
 	}
 	
 	public void right() {
 		x+=speed;
-		if(x>450) {
-			x=450;
+		if(x>435) {
+			x=435;
 		}
 	}
 	
