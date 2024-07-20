@@ -30,6 +30,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	public static boolean needImage = true;
 	public static boolean gotImage = false;	
 	Timer alienSpawn;
+	Font score;
+	
 	
 
 	public GamePanel() {
@@ -44,6 +46,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		if (needImage) {
 		    loadImage ("images/space (2).png");
 		}
+		score = new Font("Arial", Font.PLAIN, 40);
 	}
 	@Override
 	public void paintComponent(Graphics g){
@@ -61,6 +64,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	void updateMenuState() {  }
 	void updateGameState() { 
 		obj.update();
+		if(rocket.isActive == false) {
+			currentState = END;
+		}
 	}
 	void updateEndState()  {  }
 
@@ -84,6 +90,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		}
 		
 		obj.draw(g);
+		g.setFont(score);
+		g.setColor(Color.BLUE);
+		g.drawString("Score:" + obj.getScore(), 150, 100);
 	}
 	void drawEndState(Graphics g)  { 
 		g.setColor(Color.RED);
@@ -127,6 +136,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 			}
 			
 			if(currentState == END) {
+				rocket.isActive = true;
 				alienSpawn.stop();
 			}
 		}

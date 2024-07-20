@@ -24,9 +24,12 @@ public class Rocketship extends GameObject {
 
 	public void up() {
 		y-=speed;
+		
 		if(y<0) {
 			y=0;
+			
 		}
+		super.update();
 	}
 
 	public void down() {
@@ -34,6 +37,7 @@ public class Rocketship extends GameObject {
 		if(y>750) {
 			y=750;
 		}
+		super.update();
 	}
 
 	public void left() {
@@ -41,6 +45,7 @@ public class Rocketship extends GameObject {
 		if(x<0) {
 			x=0;
 		}
+		super.update();
 	}
 
 	public void right() {
@@ -48,6 +53,7 @@ public class Rocketship extends GameObject {
 		if(x>435) {
 			x=435;
 		}
+		super.update();
 	}
 
 	void draw(Graphics g) {
